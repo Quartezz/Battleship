@@ -4,6 +4,7 @@ const gamesBoardContainer = document.querySelector("#gamesboard-container")
 const startButton = document.querySelector("#start-button")
 const infoDisplay = document.querySelector("#info")
 const turnDisplay = document.querySelector("#turn-display")
+const gameInfo = document.getElementById("game-info")
 
 // Option choosing
 let angle = 0
@@ -39,8 +40,8 @@ function createBoard(color, user) {
     gamesBoardContainer.append(gameBoardContainer)
 }
 
-createBoard('yellow', "player")
-createBoard("pink", "computer")
+createBoard('#00bbf0', "player")
+createBoard("#00bbf0", "computer")
 
 
 // Creating Ships
@@ -178,7 +179,9 @@ startButton.addEventListener("click", startGame)
 function startGame() {
     if(playerTurn === undefined) {
         if (optionContainer.children.length != 0) {
+            gameInfo.classList.add("active")
             infoDisplay.textContent = "Please place all your ships first!"
+            turnDisplay.textContent = "Watch the info error!"
         } else {
             const allBoardBlocks = document.querySelectorAll("#computer div")
             allBoardBlocks.forEach(block => block.addEventListener("click", handleClick))
@@ -211,7 +214,7 @@ function handleClick(e) {
         playerTurn = false
         const allBoardBlocks = document.querySelectorAll("#computer div")
         allBoardBlocks.forEach(block => block.replaceWith(block.cloneNode(true)))
-        setTimeout(computerGo, 3000)
+        setTimeout(computerGo, 1500)
     }
 }
 
@@ -247,7 +250,7 @@ function computerGo() {
                 infoDisplay.textContent = "Nothing hit this time."
                 allBoardBlocks[randomGo].classList.add("empty")
             }
-        }, 3000)
+        }, 1500)
 
         setTimeout(() => {
             playerTurn = true
@@ -255,7 +258,7 @@ function computerGo() {
             infoDisplay.textContent = "Plese make your turn."
            const allBoardBlocks = document.querySelectorAll("#computer div")
            allBoardBlocks.forEach(block => block.addEventListener("click", handleClick))
-        }, 6000)
+        }, 3000)
     }
 }
 
