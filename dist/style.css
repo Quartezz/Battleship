@@ -76,3 +76,15 @@
     border: 1px solid black;
     box-sizing: border-box;
 }
+
+.hover {
+    background-color: grey;
+}
+
+.boom {
+    background-color: red;
+}
+
+.empty {
+    background-color: grey;
+}
