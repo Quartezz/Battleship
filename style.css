@@ -1,10 +1,76 @@
-.option-container {
-    width: 500px;
-    height: 60px;
-    margin: 30px 0;
-    background-color: yellow;
+:root {
+    --dark-blue: #00204a;
+    --blue: #005792;
+    --light-blue: #00bbf0;
+    --yellow: #fdb44b;
+}
+
+body {
+    font-family: 'Bangers', cursive;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+header {
+    background-color: var(--yellow);
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.header-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--blue);
+    letter-spacing: 4px;
+}
+
+main {
+    background-color: var(--blue);
+    padding: 60px;
+    
+}
+
+#game-info {
+    display: none;
+}
+
+#game-info.active {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--dark-blue);
+}
+
+.playerNames-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+    color: var(--dark-blue);
+}
+
+.ships-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.ships-container h3 {
+    color: var(--dark-blue);
+}
+
+.option-container {
+    width: 28%;
+    height: 60px;
+    margin: 5px 0;
+    background-color: var(--light-blue);
+    display: flex;
+    align-items: center;
+    border: var(--dark-blue) solid 1px;
+    justify-content: center;
 }
 
 .destroyer {
@@ -62,18 +128,20 @@
     height: 200px;
     display: flex;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 #gamesboard-container {
-    width: 500px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 120px;
 }
 
 .block {
     width: 20px;
     height: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--dark-blue);
     box-sizing: border-box;
 }
 
@@ -94,5 +162,51 @@
 #computer .cruiser,
 #computer .battleship,
 #computer .carrier {
-    background-color: pink;
+    background-color: var(--light-blue);
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 30px;
+}
+
+button {
+    padding: 10px 40px;
+    color: var(--dark-blue);
+    font-size: 32px;
+    font-family: inherit;
+    border-radius: 5px;
+    border: var(--dark-blue) solid 1px;
+}
+
+#flip-button {
+    background-color: var(--light-blue);
+}
+
+#start-button {
+    background-color: var(--yellow);
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--yellow);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    gap: 10px;
+}
+
+.footer p,
+.footer .fa-github {
+    color: var(--blue);
+}
+
+.fa-github {
+    font-size: 20px;
 }
