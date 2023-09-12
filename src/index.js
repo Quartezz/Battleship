@@ -3,7 +3,7 @@ const optionContainer = document.querySelector(".option-container")
 const gamesBoardContainer = document.querySelector("#gamesboard-container")
 const startButton = document.querySelector("#start-button")
 const infoDisplay = document.querySelector("#info")
-const turnDisplay = document.querySelector("turn-display")
+const turnDisplay = document.querySelector("#turn-display")
 
 // Option choosing
 let angle = 0
@@ -176,12 +176,17 @@ startButton.addEventListener("click", startGame)
 // Start Game
 
 function startGame() {
-    if (optionContainer.children.length != 0) {
-        infoDisplay.textContent = "Please place all your ships first!"
-    } else {
-        const allBoardBlocks = document.querySelectorAll("#computer div")
-        allBoardBlocks.forEach(block => block.addEventListener("click", handleClick))
-    }
+    if(playerTurn === undefined) {
+        if (optionContainer.children.length != 0) {
+            infoDisplay.textContent = "Please place all your ships first!"
+        } else {
+            const allBoardBlocks = document.querySelectorAll("#computer div")
+            allBoardBlocks.forEach(block => block.addEventListener("click", handleClick))
+            playerTurn = true
+            turnDisplay.textContent = "Your turn!"
+            infoDisplay.textContent = "The game has started!"
+        }
+    } 
 }
 let playerHits = []
 let computerHits = []
@@ -199,7 +204,7 @@ function handleClick(e) {
             playerHits.push(...classes)
             checkScore("player", playerHits, playerSunkShips)
         }
-        if (!e.target.classList.contain("taken")) {
+        if (!e.target.classList.contains("taken")) {
             infoDisplay.textContent = "Nothing hit!"
             e.target.classList.add("empty")
         }
@@ -260,7 +265,16 @@ function checkScore(user, userHits, userSunkShips) {
         if (
             userHits.filter(storedShipName => storedShipName === shipName).length === shipLength
         ) {
-            infoDisplay.textContent = `You sunk the ${user}'s ${shipName}.`
+            
+            if (user === 'player') {
+                infoDisplay.textContent = `You sunk the computer's ${shipName}.`
+                playerHits = userHits.filter(storedShipName => storedShipName !== shipName)
+            }
+            if (user === 'computer') {
+                infoDisplay.textContent = `The computer sunk your ${shipName}.`
+                computerHits = userHits.filter(storedShipName => storedShipName !== shipName)
+            }
+            userSunkShips.push(shipName)
         }
     }
 
@@ -270,6 +284,16 @@ function checkScore(user, userHits, userSunkShips) {
     checkShip("battleship", 4)
     checkShip("carrier", 5)
 
+    if(playerSunkShips.length ===5) {
+        infoDisplay.textContent = "You won!"
+        gameOver = true
+    }
+    if(computerSunkShips.length ===5) {
+        infoDisplay.textContent = "You lost!"
+        gameOver = true
+    }
+
+    
 }
 
 
