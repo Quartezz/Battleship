@@ -1,0 +1,19 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "battleship game",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "kamilmachel",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
