@@ -191,8 +191,6 @@ button {
 .footer p,
 .footer .fa-github {
     color: var(--blue);
-}
-
-.fa-github {
     font-size: 20px;
 }
+
