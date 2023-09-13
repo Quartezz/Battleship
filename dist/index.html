@@ -14,15 +14,13 @@
     <title>Battleship Game</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header-container">
-        <h1>Battlership</h1>
-    </div>
+    <header>
+            <h1>Battlership</h1>
     </header>
     <main>
     <div id="game-info">
-        <p>Turn: <span id="turn-display"></span></p>
-        <p>Info: <span id="info"></span></p>
+        <p>Turn: <span id="turn-display">There will be turn display.</span></p>
+        <p>Info: <span id="info">There will be info display</span></p>
     </div>
     <div class="playerNames-container">
         <h2>Player</h2>
@@ -31,13 +29,25 @@
 
     <div id="gamesboard-container"></div>
     <div class="ships-container">
-        <h3>Place your ships commander!</h3>
+        <h3 id="shipsInfo">Place your ships commander!</h3>
     <div class="option-container">
-        <div id="0" class="destroyer-preview destroyer" draggable="true"></div>
-        <div id="1" class="submarine-preview submarine" draggable="true"></div>
-        <div id="2" class="cruiser-preview cruiser" draggable="true"></div>
+        <!-- <div id="0" class="destroyer-preview destroyer" draggable="true"> -->
+            <img id="0" class="destroyer-preview destroyer" draggable="true" 
+            src="./Images/destroyer.svg" alt="destroyer">
+        <!-- </div> -->
+        <!-- <div id="1" class="submarine-preview submarine" draggable="true"></div> -->
+        <img id="1" class="submarine-preview submarine" draggable="true" 
+            src="./Images/submarine.svg" alt="submarine">
+        <img id="2" class="cruiser-preview cruiser" draggable="true" 
+            src="./Images/submarine.svg" alt="submarine">
+        <img id="3" class="battleship-preview battleship" draggable="true" 
+            src="./Images/patrol.svg" alt="battleship">
+        <img id="4" class="carrier-preview carrier" draggable="true" 
+            src="./Images/carrier.svg" alt="carrier">
+        <!-- <div id="2" class="cruiser-preview cruiser" draggable="true"></div>
+            
         <div id="3" class="battleship-preview battleship" draggable="true"></div>
-        <div id="4" class="carrier-preview carrier" draggable="true"></div>
+        <div id="4" class="carrier-preview carrier" draggable="true"></div> -->
     </div>
 </div>
     <div class="button-container">
