@@ -4,7 +4,7 @@ const gamesBoardContainer = document.querySelector("#gamesboard-container")
 const startButton = document.querySelector("#start-button")
 const infoDisplay = document.querySelector("#info")
 const turnDisplay = document.querySelector("#turn-display")
-const gameInfo = document.getElementById("game-info")
+const shipsInfo = document.querySelector("#shipsInfo")
 
 // Option choosing
 let angle = 0
@@ -179,10 +179,10 @@ startButton.addEventListener("click", startGame)
 function startGame() {
     if(playerTurn === undefined) {
         if (optionContainer.children.length != 0) {
-            gameInfo.classList.add("active")
             infoDisplay.textContent = "Please place all your ships first!"
             turnDisplay.textContent = "Watch the info error!"
         } else {
+            shipsInfo.classList.add("active")
             const allBoardBlocks = document.querySelectorAll("#computer div")
             allBoardBlocks.forEach(block => block.addEventListener("click", handleClick))
             playerTurn = true
